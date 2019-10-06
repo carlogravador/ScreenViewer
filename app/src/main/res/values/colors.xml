@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00796B</color>
+    <color name="colorAccent">#009688</color>
+
+    <color name="colorTransparent">#8b434343</color>
+    <color name="colorTransparentWhite">#cccccc</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorOffWhite">#b9ffffff</color>
+    <color name="colorLightGray">#e2e2e2</color>
+
+    <color name="colorCircle">#11d1bf</color>
+    <color name="colorAccentLight">#c811d1bf</color>
+
+    //color theme for client
+    <color name="colorRed">#c94036</color>
+    <color name="colorOrange">#c77a08</color>
+    <color name="colorGray">#898989</color>
+    <color name="colorGreen">#4CAF50</color>
+    <color name="colorBlue">#177ed1</color>
+    <color name="colorIndigo">#3F51B5</color>
+    <color name="colorViolet">#673AB7</color>
+    <color name="colorDefault">#d2205d</color>
+
+    <color name="colorWarning">#df8a09</color>
+</resources>
