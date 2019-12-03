@@ -28,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:orientation="vertical"
         >
 
@@ -60,25 +61,26 @@
 
                 <TextView
                     android:id="@+id/share_title_text_view"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_toRightOf="@+id/share_image_view"
-                    android:text="Share"
+                    android:text="Start Sharing"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="32sp"
+                    android:textSize="26sp"
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/share_desc_text_view"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/share_title_text_view"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_toEndOf="@+id/share_image_view"
-                    android:text="Start a new presentation by creating a new lobby."
+                    android:text="Start screen sharing using Wifi Hotspot"
                     android:textColor="@color/colorPrimary"
                     android:textSize="12sp"/>
 
@@ -115,7 +117,7 @@
 
                 <TextView
                     android:id="@+id/access_title_text_view"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="16dp"
@@ -123,11 +125,11 @@
                     android:layout_toRightOf="@+id/access_image_view"
                     android:text="Access"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="32sp"
+                    android:textSize="26sp"
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/access_title_text_view"
                     android:layout_marginStart="16dp"
