@@ -81,6 +81,7 @@ public class ScreenCastService extends Service {
 
     public static void startActionScreenCast(Context context, Bundle extras)
     {
+
         Intent i = new Intent(context, ScreenCastService.class);
         i.putExtras(extras);
         ContextCompat.startForegroundService(context, i);

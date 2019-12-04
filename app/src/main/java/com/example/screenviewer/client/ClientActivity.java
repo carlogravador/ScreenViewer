@@ -74,17 +74,38 @@ public class ClientActivity extends AppCompatActivity {
 
         public ClientThread(String ip, int port) throws IOException
         {
-            Log.v("ClientActivity", "Connecting to Ip: " + ip + ", Port: " + port);
             _handler = new Handler(Looper.getMainLooper());
+            connectToServer(ip, port);
+        }
+
+        public void stopConnection()
+        {
+            _isConnected = false;
+        }
+
+        private void connectToServer(String ip, int port) throws IOException
+        {
+            Log.v("ClientActivity", "Connecting to Ip: " + ip + ", Port: " + port);
             _socket = new Socket(ip, port);
             _dataInputStream = new DataInputStream(_socket.getInputStream());
             _isConnected = true;
             Log.v("ClientActivity", "Socket created successfully. Ip: " + ip + ", Port: " + port);
         }
 
-        public void stopConnection()
+        private void listenToServer() throws IOException
         {
-            _isConnected = false;
+            int len = _dataInputStream.readInt();
+            if (len > 0) {
+                final byte[] bytes = new byte[len];
+                _dataInputStream.readFully(bytes, 0, bytes.length);
+                _handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                        _displayView.setImageBitmap(bm);
+                    }
+                });
+            }
         }
 
         private void closeSocket()
@@ -107,18 +128,7 @@ public class ClientActivity extends AppCompatActivity {
             try
             {
                 while (_isConnected) {
-                    int len = _dataInputStream.readInt();
-                    if (len > 0) {
-                        final byte[] bytes = new byte[len];
-                        _dataInputStream.readFully(bytes, 0, bytes.length);
-                        _handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                                _displayView.setImageBitmap(bm);
-                            }
-                        });
-                    }
+                    listenToServer();
                 }
             }
             catch (IOException e)

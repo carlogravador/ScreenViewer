@@ -28,11 +28,7 @@ public class ServerThread extends Thread {
             Log.v("ServerThread", "Server is up and running...");
             while (_isServerRunning)
             {
-                Log.v("ServerThread", "Waiting for connections");
-                Socket clientSocket =  _serverSocket.accept();
-                DataOutputStream outputStream = new DataOutputStream(clientSocket.getOutputStream());
-                _clientList.put(clientSocket, outputStream);
-                Log.v("ServerThread", "Received Client Connection");
+                acceptConnection();
             }
 
         }
@@ -40,6 +36,15 @@ public class ServerThread extends Thread {
         {
             e.printStackTrace();
         }
+    }
+
+    private void acceptConnection() throws IOException
+    {
+        Log.v("ServerThread", "Waiting for connections");
+        Socket clientSocket =  _serverSocket.accept();
+        DataOutputStream outputStream = new DataOutputStream(clientSocket.getOutputStream());
+        _clientList.put(clientSocket, outputStream);
+        Log.v("ServerThread", "Received Client Connection");
     }
 
     private void clearResources()
